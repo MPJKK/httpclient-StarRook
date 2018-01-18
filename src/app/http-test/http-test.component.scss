@@ -1,0 +1,37 @@
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: coral;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #AEAEAE}
+
+th {
+  background-color: coral;
+  color: white;
+}
+
+div{
+  text-align: center;
+}
+
+input {
+  font-size: 1.4em;
+  padding: 5px 40px 5px 0px;
+  margin-bottom:20px;
+  width:12.5%;
+  background-color: lightgreen;
+  color:white;
+  border: 1px solid black;
+}

@@ -9,6 +9,9 @@ import {HttpClient} from '@angular/common/http';
 export class HttpTestComponent implements OnInit {
 
   tulos = 'Moro';
+  apitulos = 'Make a request';
+  apiAddress = 'http://services.runescape.com/m=itemdb_rs/api/catalogue/items.json?category=0&alpha=g&page=1';
+  apiOsoite = 'http://media.mw.metropolia.fi/wbma/media';
 
   constructor(private http: HttpClient) {
 
@@ -26,8 +29,31 @@ export class HttpTestComponent implements OnInit {
        });
   }
 
+  getFromApi() {
+
+        interface RunescapeItemInterface {
+            items: any;
+        }
+
+        this.http.get<RunescapeItemInterface>(this.apiAddress).subscribe((data) => {
+            this.apitulos = data.items;
+            console.log(this.apitulos);
+        });
+  }
+
+  onKey(event: any) {
+      interface RunescapeItemInterface {
+          items: any;
+      }
+
+      this.http.get<RunescapeItemInterface>('http://services.runescape.com/m=itemdb_rs/api/catalogue/items.json?category=0&alpha=' + event.target.value + '&page=1').subscribe((data) => {
+          this.apitulos = data.items;
+          console.log(this.apitulos);
+      });
+  }
+
   ngOnInit() {
-      this.getJson();
+      this.getFromApi();
   }
 
 }

@@ -1,3 +1,18 @@
-<ul id="taulu">
-  {{ tulos }}
-</ul>
+<h1>Latest Runescape Prices</h1>
+
+<div>
+<input (keyup)="onKey($event)" type="text" placeholder=" Search Item...">
+</div>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Current Price</th>
+  </tr>
+  <tr *ngFor="let api of apitulos">
+    <td><img [src] = api.icon></td>
+    <td>{{api.name}}</td>
+    <td>{{api.current.price}}</td>
+  </tr>
+</table>
